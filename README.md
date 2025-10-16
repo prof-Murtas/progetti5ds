@@ -1,6 +1,6 @@
 # Portfolio Progetti – Classe 5 DS
 
-Questo sito web statico raccoglie i progetti realizzati dagli studenti della Classe 5ª Informatica.
+Questo sito web statico raccoglie i progetti realizzati dagli studenti della Classe 5 DS.
 
 ## Obiettivo didattico
 - Imparare a fare **fork** di un progetto
