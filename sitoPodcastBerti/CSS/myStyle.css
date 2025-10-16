@@ -1,0 +1,510 @@
+/* Navbar */
+:root {
+    --base-color: #f3f3f3;
+    --grigio: #3c414e;
+    --text-color: black;
+    --secondary-text: #4d4d4d;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --bg-boxEpisodi: white;
+    --bottoni-podcast: #676e7e00;
+    --testo-navbar: #4d444d;
+}
+
+.darkMode {
+    --base-color: #3c414e;
+    --grigio: #f3f3f3;
+    --text-color: #black;   
+    --secondary-text: rgb(125, 123, 123);
+    --shadow-color: rgba(255, 255, 255, 0.05);
+    --bg-boxEpisodi: #2c2f36;
+    --bottoni-podcast: #676e7e00;
+    --testo-navbar: black;
+}
+
+#theme-switch {
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: var(--base-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 10px;
+    right: 0%;
+    transition: transform 0.3s;
+}
+
+#theme-switch svg {
+    fill: currentColor;
+}
+
+#theme-switch svg:last-child{
+    display: none;
+}
+
+.darkMode #theme-switch svg:first-child {
+    display: none;
+}
+
+.darkMode #theme-switch svg:last-child {
+    display: block;
+}
+
+
+
+.navbar {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent; 
+    color: var(--base-color);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 2px;
+    border-bottom: 1px solid var(--testo-navbar); 
+    backdrop-filter: blur(8px); 
+    z-index: 10 ;
+}   
+
+body {
+    padding-top: 70px;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--base-color);
+    gap: 2rem;
+    justify-items: center;
+    transition: background-color 0.5s ease, color 0.5s ease;
+    line-height: 1.6;
+    letter-spacing: 0.3px;
+}
+
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+
+.personeTitolo {
+    color: var(--text-color);
+}
+
+p {
+    color: var(--text-color);
+}
+
+.nav-links a {
+    position: relative;
+    text-decoration: none;
+    color: var(--testo-navbar);
+    font-size: 1.1rem;
+    right: 5.5rem;
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    height: 2px;
+    width: 0;
+    background-color: var(--testo-navbar);
+    transition: width 0.3s;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+
+.logo {
+    height: 80px;
+    width: 80px;
+}
+
+h1 {
+    color: var(--text-color);
+}
+
+.titolo {
+    
+    font-size: 3rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--text-color);
+    letter-spacing: 2px;
+}
+
+.sottotitolo {
+    font-size: 1.5rem;
+    font-weight: 400;
+    text-align: center;
+    color: var(--secondary-text);
+    font-style: italic;
+    
+}
+
+.linkRandom,
+.linkUltimo {
+    text-decoration: underline;
+    color: inherit
+}
+
+/*/////////////////////////////////////////////////////////////////////*/
+
+/*stile per episodi*/
+.episodi {
+    gap: 3rem;
+    display: flex;
+    padding: 2rem;
+}
+
+
+.ultimoEpisodio {
+    background-color: var(--bg-boxEpisodi);
+    border-radius: 10px;
+    box-shadow:  0 6px 15px var(--shadow-color);
+    padding: 1rem;
+    width: 500px;
+    height: 670px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.ultimoEpisodio:hover {
+    transform: scale(1.05);
+}
+
+.episodioRandom {
+    background-color: var(--bg-boxEpisodi);
+    border-radius: 10px;
+    box-shadow:  0 6px 15px var(--shadow-color);
+    padding: 1rem;
+    width: 300px;
+    height: 450px;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.episodioRandom:hover {
+    transform: scale(1.05);
+}
+
+.copertina {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.copertinaRandom {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+
+
+/*miglioramenti chat*/
+#theme-switch:hover {
+    transform: scale(1.1);
+}   
+
+.logo {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.pirate-ship-container {
+    position: fixed;
+    bottom: 0; /* 👈 la posiziona in basso nella finestra */
+    left: 0;
+    width: 100%;
+    height: 195px; /* o la dimensione che vuoi */
+    overflow: hidden;
+    z-index: 10; /* sopra altri sfondi, ma puoi regolare */
+    pointer-events: none; /* così non blocca i clic */
+}
+
+.pirate-ship {
+    position: absolute;
+    height: 200px;
+    animation: floatShip 10s linear infinite alternate;
+}
+
+@keyframes floatShip {
+    0% {
+        left: 0;
+    }
+    50% {
+        left: calc(100% - 100px); /* si sposta verso destra */
+    }
+    100% {
+        left: 0; /* torna a sinistra */
+    }
+}
+
+.preferences-box {
+    border: 1px solid var(--bg-boxEpisodi);
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: var(--bg-boxEpisodi);
+}
+
+
+/*//////////////////////////////////////////////////////////////////////////////*/
+
+/* Pagina chi siamo */
+.team {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2rem;
+    justify-items: center;
+    padding-top: 2rem;
+}
+  
+.persona {
+    background-color: var(--bg-boxEpisodi);
+    border-radius: 1rem;
+    box-shadow:  0 6px 15px var(--shadow-color);
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+}
+  
+.persona:hover {
+    transform: translateY(-5px);
+}
+  
+.persona img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    border: 4px solid var(--bg-boxEpisodi);
+}
+  
+.persona h3 {
+    margin: 0.5rem 0;
+    color: var(--bg-boxEpisodi);
+}
+  
+#dove-ascoltarci ul {
+    list-style: none;
+    text-align: center;
+}
+  
+#dove-ascoltarci li {
+    margin: 0.5rem 0;
+}
+  
+#dove-ascoltarci a {
+    color: var(--secondary-text);
+    text-decoration: none;
+    font-weight: 500;
+}
+  
+#dove-ascoltarci a:hover {
+    text-decoration: underline;
+}
+  
+footer p {
+    font-size: 0.9rem;
+    color: var(--text-color);
+}
+
+.sottotitoloChiSiamo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    color: var(--text-color);
+    letter-spacing: 2px;
+    
+} 
+
+#progetto.card {
+    background-color: var(--bg-boxEpisodi);
+    border-radius: 1rem;
+    box-shadow: 0 8px 20px var(--shadow-color);
+    padding: 2rem;
+    margin-bottom: 3rem;
+    max-width: 1100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+  
+.progetto-contenuto {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.progetto-testo {
+    flex: 1 1 300px;
+}
+
+.progetto-testo h2 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+}
+
+.progetto-testo p {
+    font-size: 1.1rem;
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.progetto-immagine {
+    flex: 1 1 300px;
+    text-align: center;
+}
+
+.progetto-immagine img {
+    max-width: 100%;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+
+
+  /* Podcast Player Styles */
+
+/* Sezione podcast */
+#podcast {
+    text-align: center;
+    margin-top: 50px;
+}
+
+
+
+/* Contenitore del podcast */
+.podcast-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Cover del podcast */
+.cover-container {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.cover {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    animation: rotateCover 5s linear infinite;
+}
+
+/* Animazione rotazione cover */
+@keyframes rotateCover {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Podcast player */
+header h1 {
+    font-size: 2.5rem;
+}
+
+.navbar a {
+    font-size: 1.2rem;
+}
+
+.podcast-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 30px;
+}
+
+#episode-title {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.cover {
+    width: 100%;
+    height: auto;
+}
+
+@keyframes rotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+.podcast-player {
+    text-align: center;
+    margin-top: 20px;
+}
+
+
+/* Stile per la pagina degli episodi */
+#episodes-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;  /* Allinea gli episodi al centro */
+    gap: 10px;  /* Spazio minimo tra gli episodi */
+    margin-top: 20px;
+}
+
+.episode-item {
+    background-color: var(--bg-boxEpisodi);
+    padding: 50px;  /* Ancora più compatto */
+    border-radius: 8px;
+    width: calc(33.333% - 10px);  /* 3 episodi per riga, larghezza ridotta */
+    box-shadow: 0px 2px 4px var(--shadow-color);
+    text-align: center;
+    margin-bottom: 8px;  /* Spazio ridotto tra le righe */
+}
+
+.episode-cover {
+    width: 80%;  /* Immagini un po' più piccole */
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 6px;  /* Ridotto lo spazio tra immagine e titolo */
+}
+
+.episode-item h3 {
+    font-size: 14px;  /* Font più piccolo */
+    margin-bottom: 6px;  /* Spazio ridotto */
+}
+
+.episode-item button {
+    padding: 8px 10px;  /* Bottone più compatto */
+    background-color:var(--bottoni-podcast);
+    color: #4d4d4d;
+    border: none;
+    border: solid black;
+    cursor: pointer;
+    width: 100px;
+    transition: background-color 0.3s;
+    transition: transform 0.3s;
+    font-size: 12px;
+}
+
+.episode-item button:hover {
+    transform: scale(1.1);
+}
+
+h2 {
+    text-align: center;  /* Titolo Elenco Episodi centrato */
+    font-size: 24px;  /* Un po' più grande per il titolo */
+    margin-bottom: 20px;  /* Spazio sotto il titolo */
+}
