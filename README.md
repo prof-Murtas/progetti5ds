@@ -14,3 +14,6 @@ Questo sito web statico raccoglie i progetti realizzati dagli studenti della Cla
    ```bash
    git clone https://github.com/<tuo-utente>/portfolio-site.git
    cd portfolio-site
+
+
+## add all the pages of the projects
