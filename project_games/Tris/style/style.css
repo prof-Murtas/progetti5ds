@@ -1,0 +1,11 @@
+table {
+    border-collapse:collapse
+}
+
+
+.BottoneTris{
+    border:1px solid #ddd;
+    height: 255px;
+    width: 255px;
+    
+}
