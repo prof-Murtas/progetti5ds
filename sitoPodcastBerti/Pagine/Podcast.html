@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast</title>
+    <link rel="stylesheet" href="../CSS/myStyle.css">
+    <script src="../Javascript/javascript.js" defer></script>
+    
+</head>
+<body>
+    <!-- Header con il menu -->
+    <header>
+        <nav class="navbar">
+            <a href="../index.html"><img id = "logo" class = "logo" alt = "logo" src = "../Media/logoModalitaChiara.png"></a>
+            <ul class="nav-links">
+                <li><a href="ChiSiamo.html" data-translate="titolo2">Chi siamo</a></li>
+                <li><a href="EpisodiPodcast.html">Podcast</a></li>
+                <li><a href="SocialContatti.html" data-translate="titolo4">Social e Contatti</a></li>
+                <button id="theme-switch">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-120q-150 0-255-105T120-480q0-150 105-255t255-105q14 0 27.5 1t26.5 3q-41 29-65.5 75.5T444-660q0 90 63 153t153 63q55 0 101-24.5t75-65.5q2 13 3 26.5t1 27.5q0 150-105 255T480-120Z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#1f1f1f"><path d="M480-280q-83 0-141.5-58.5T280-480q0-83 58.5-141.5T480-680q83 0 141.5 58.5T680-480q0 83-58.5 141.5T480-280ZM200-440H40v-80h160v80Zm720 0H760v-80h160v80ZM440-760v-160h80v160h-80Zm0 720v-160h80v160h-80ZM256-650l-101-97 57-59 96 100-52 56Zm492 496-97-101 53-55 101 97-57 59Zm-98-550 97-101 59 57-100 96-56-52ZM154-212l101-97 55 53-97 101-59-57Z"/></svg>
+                </button>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Contenuto principale del Podcast -->
+    <main>
+        <div class="podcast-container">
+            <h2 id="episode-title">Titolo Episodio</h2> <!-- Titolo dinamico dell'episodio -->
+            <div class="cover-container">
+                <img src="" alt="Cover episodio" class="cover" id="podcast-cover">
+                <div class="disk"></div>
+            </div>
+            <div class="podcast-player">
+                <audio id="audio" controls>
+                    <source src="" type="audio/mp3">
+                    Il tuo browser non supporta l'elemento audio.
+                </audio>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 The Black Pearl</p>
+    </footer>
+
+    <script>
+        // Prendi l'ID episodio dalla query string
+        const urlParams = new URLSearchParams(window.location.search);
+        const episodeId = urlParams.get('episode');
+
+        // Mappa degli episodi
+        const episodes = {
+            1: { title: 'Episodio 1', file: '../Media/mp3Episodi/Episodio.mp3', cover: '../Media/episodio1.png' },
+            2: { title: 'Episodio 2', file: '../Media/mp3Episodi/Episodio.mp3', cover: '../Media/episodio2.png' },
+            3: { title: 'Episodio 3', file: '../Media/mp3Episodi/Episodio.mp3', cover: '../Media/episodio3.png' },
+            4: { title: 'Episodio 4', file: '../Media/mp3Episodi/Episodio.mp3', cover: '../Media/episodio4.png' },
+            5: { title: 'Episodio 5', file: '../Media/mp3Episodi/Episodio.mp3', cover: '../Media/episodio5.png' }
+        };
+
+        // Verifica se l'episodio esiste e carica il file MP3 e la copertura
+        if (episodeId && episodes[episodeId]) {
+            const episode = episodes[episodeId];
+            const audioSource = document.getElementById('audio').querySelector('source');
+            const podcastCover = document.getElementById('podcast-cover');
+            const episodeTitle = document.getElementById('episode-title');  // Seleziona il titolo dell'episodio
+
+            audioSource.src = episode.file;
+            podcastCover.src = episode.cover;
+            episodeTitle.textContent = episode.title;  // Imposta il titolo dell'episodio
+            document.getElementById('audio').load(); // Ricarica il player audio
+        } else {
+            alert('Episodio non trovato!');
+        }
+    </script>
+
+   
+</body>
+</html>
