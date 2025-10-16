@@ -2,9 +2,24 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 2%;
+
+    background-color: rgb(43, 107, 226);
 }
 
-#imgAnziano{
+#descrizione{
+    font-size: large;
+}
+
+#imgAnziani{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#imgAnziani > img{
     width: 50%;
-    height: 50%;
+    height: 100%;
 }
